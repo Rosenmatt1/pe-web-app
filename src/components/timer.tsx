@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const Clock = () => {
-  const [time, setTime] = useState(new Date());
+const Timer = () => {
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date());
+    const timerId = setTimeout(() => {
+      setSeconds(prevSeconds => prevSeconds + 1);
     }, 1000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+    // Cleanup function to clear the timer when component unmounts
+    return () => clearTimeout(timerId);
+  }, [seconds]); // Run effect whenever 'seconds' state changes
 
   return (
     <div>
-      <h1>Current Time:</h1>
-      <p>{time.toLocaleTimeString()}</p>
+      <h1>Timer: {seconds} seconds</h1>
+      <button onClick={() => setSeconds(0)}>Reset</button>
     </div>
   );
 }
 
-export default Clock;
+export default Timer;
+
 
