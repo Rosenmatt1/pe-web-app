@@ -1,25 +1,48 @@
 import React, { useState, useEffect } from 'react';
 
-const Timer = () => {
-  const [seconds, setSeconds] = useState(0);
+const Timer: React.FC = () => {
+  const [seconds, setSeconds] = useState<number>(0);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  let timerId: NodeJS.Timeout | null = null; // Declare timerId outside useEffect
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setSeconds(prevSeconds => prevSeconds + 1);
-    }, 1000);
+    if (isRunning) {
+      timerId = setInterval(() => {
+        setSeconds(prevSeconds => prevSeconds + 1);
+      }, 1000); // Run every 1 second
+    } else {
+      if (timerId) clearInterval(timerId); // Clear interval only if timerId is not null
+    }
 
-    // Cleanup function to clear the timer when component unmounts
-    return () => clearTimeout(timerId);
-  }, [seconds]); // Run effect whenever 'seconds' state changes
+    return () => { // Cleanup function
+      if (timerId) clearInterval(timerId); // Clear interval when component unmounts
+    };
+  }, [isRunning]);
+
+  const handleStart = () => {
+    setIsRunning(true);
+  };
+
+  const handleStop = () => {
+    setIsRunning(false);
+  };
+
+  const handleReset = () => {
+    setIsRunning(false);
+    setSeconds(0);
+  };
 
   return (
     <div>
       <h1>Timer: {seconds} seconds</h1>
-      <button onClick={() => setSeconds(0)}>Reset</button>
+      {isRunning ? (
+        <button onClick={handleStop}>Stop</button>
+      ) : (
+        <button onClick={handleStart}>Start</button>
+      )}
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
-}
+};
 
 export default Timer;
-
-
