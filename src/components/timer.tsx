@@ -33,7 +33,7 @@ const Timer: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="timer">
       <h1>Timer: {seconds} seconds</h1>
       {isRunning ? (
         <button onClick={handleStop}>Stop</button>

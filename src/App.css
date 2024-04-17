@@ -9,3 +9,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.timer {
+  border: 2px solid white; /* border width, style, and color */
+  border-radius: 10px;
+  padding: 20px; /* optional: padding to create space inside the border */
+  color: white;
+}
