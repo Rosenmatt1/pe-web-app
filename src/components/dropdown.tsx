@@ -14,7 +14,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
   };
 
   return (
-    <div>
+    <div className="dropdown">
       <select
         value={selectedOption}
         onChange={(e) => handleOptionSelect(e.target.value)}

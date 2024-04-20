@@ -13,8 +13,9 @@ const handleSelectOption = (option: string) => {
 function App() {
   return (
     <div className="peapp">
-         <Dropdown options={options} onSelectOption={handleSelectOption} />
+        <Dropdown options={options} onSelectOption={handleSelectOption} />
         <Timer/>
+        <div className="results"> Results </div>
     </div>
   );
 }
