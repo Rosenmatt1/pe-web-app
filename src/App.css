@@ -5,36 +5,44 @@
   background-color: #282c34;
   font: white;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
 }
 
 .dropdown {
-  height: 12rem;
-  width: 12rem;
-  border: 2px solid white; /* border width, style, and color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13rem;
+  width: 13rem;
+  border: 2px solid white; 
   border-radius: 10px;
-  padding: 20px; /* optional: padding to create space inside the border */
+  padding: 20px; 
   color: white;
-  margin-left: 5rem;
+  margin-left: 7rem;
 }
 
 .timer {
-  height: 12rem;
-  width: 12rem;
-  border: 2px solid white; /* border width, style, and color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13rem;
+  width: 13rem;
+  border: 2px solid white; 
   border-radius: 10px;
-  padding: 20px; /* optional: padding to create space inside the border */
+  padding: 20px; 
   color: white;
 }
 
 .results {
-  height: 12rem;
-  width: 12rem;
-  border: 2px solid white; /* border width, style, and color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13rem;
+  width: 13rem;
+  border: 2px solid white; 
   border-radius: 10px;
-  padding: 20px; /* optional: padding to create space inside the border */
+  padding: 20px; 
   color: white;
-  margin-right: 5rem;
+  margin-right: 7rem;
 }

@@ -15,17 +15,17 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
 
   return (
     <div className="dropdown">
-      <select
+        <select
         value={selectedOption}
         onChange={(e) => handleOptionSelect(e.target.value)}
-      >
+        >
         <option value="">Select an option</option>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}
           </option>
         ))}
-      </select>
+        </select>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Dropdown from './components/dropdown'
 import './App.css';
 
 
-const options = ['Option 1', 'Option 2', 'Option 3'];
+const options = ['Stretching', "Hanging", 'Pumping', 'Clamping', ];
 
 const handleSelectOption = (option: string) => {
     console.log(`Selected option: ${option}`);
