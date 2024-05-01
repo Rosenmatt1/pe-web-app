@@ -36,11 +36,11 @@ const Timer: React.FC = () => {
     <div className="timer">
       <h1>Timer: {seconds} seconds</h1>
       {isRunning ? (
-        <button onClick={handleStop}>Stop</button>
+        <button onClick={handleStop}> Stop </button>
       ) : (
-        <button onClick={handleStart}>Start</button>
+        <button onClick={handleStart}> Start </button>
       )}
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleReset}> Complete Set </button>
     </div>
   );
 };
