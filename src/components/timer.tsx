@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addObject } from '../store/reducers//dataSlice';
 
 const Timer: React.FC = () => {
+  const dispatch = useDispatch();
   const [seconds, setSeconds] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   let timerId: NodeJS.Timeout | null = null; // Declare timerId outside useEffect
+
+  const handleAddObject = () => {
+    dispatch(addObject({ key: '', value: seconds }));
+    setSeconds(0); // Reset timer value after adding object
+  };
 
   useEffect(() => {
     if (isRunning) {
@@ -40,7 +48,7 @@ const Timer: React.FC = () => {
       ) : (
         <button onClick={handleStart}> Start </button>
       )}
-      <button onClick={handleReset}> Complete Set </button>
+      <button onClick={handleAddObject}> Complete Set </button>
     </div>
   );
 };

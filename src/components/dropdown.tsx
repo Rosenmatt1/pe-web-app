@@ -10,13 +10,13 @@ interface DropdownProps {
 
 const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
   const dispatch = useDispatch();
-  const [selectedOption, setSelectedOption] = useState<string | any>(null);
+  // const [selectedOption, setSelectedOption] = useState<string | any>(null);
   const selectedKey = useSelector((state: RootState) => state.data.selectedKey);
 
-  const handleOptionSelect = (option: string) => {
-    setSelectedOption(option);
-    onSelectOption(option);
-  };
+  // const handleOptionSelect = (option: string) => {
+  //   setSelectedOption(option);
+  //   onSelectOption(option);
+  // };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSelectedKey(e.target.value));
@@ -24,11 +24,11 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
 
   return (
     <div className="dropdown">
-        <select
+        {/* <select
         value={selectedOption}
         onChange={(e) => handleOptionSelect(e.target.value)}
-        >
-        {/* <select value={selectedKey} onChange={handleSelectChange}></select> */}
+        > */}
+        <select value={selectedKey} onChange={handleSelectChange}>
         <option value="">Select an option</option>
         {options.map((option, index) => (
           <option key={index} value={option}>
