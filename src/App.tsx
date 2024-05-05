@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext } from 'react';
 import Timer from './components/timer'
 import Dropdown from './components/dropdown'
-import Counter from './components/counter'
+import Results from './components/results'
+// import Counter from './components/counter'
 import './App.css';
 
 
@@ -14,10 +15,10 @@ const handleSelectOption = (option: string) => {
 function App() {
   return (
     <div className="peapp">
-        <Counter />
+        {/* <Counter /> */}
         <Dropdown options={options} onSelectOption={handleSelectOption} />
         <Timer/>
-        <div className="results"> Results </div>
+        <Results />
     </div>
   );
 }
