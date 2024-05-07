@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector  } from 'react-redux';
 import { addObject } from '../store/reducers//dataSlice';
+import { RootState } from '../store/store';
 
 const Timer: React.FC = () => {
   const dispatch = useDispatch();
   const [seconds, setSeconds] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
+  const selectedKey = useSelector((state: RootState) => state.data.selectedKey);
   let timerId: NodeJS.Timeout | null = null; // Declare timerId outside useEffect
 
   const handleAddObject = () => {
-    dispatch(addObject({ key: '', value: seconds }));
+    dispatch(addObject({ key: selectedKey, value: seconds }));
     setSeconds(0); // Reset timer value after adding object
   };
 
