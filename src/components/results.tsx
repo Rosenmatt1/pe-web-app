@@ -12,7 +12,7 @@ const Results: React.FC = () => {
       <ul>
         {data.map((item, index) => (
           <li key={index}>
-            <strong>Key:</strong> {item.key}, <strong>Value:</strong> {item.value}
+            <strong>Exercise:</strong> {item.key}, <strong>Time:</strong> {item.value}
           </li>
         ))}
       </ul>
