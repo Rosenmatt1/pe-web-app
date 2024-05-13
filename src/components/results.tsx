@@ -4,7 +4,7 @@ import { RootState } from '../store/store';
 
 const Results: React.FC = () => {
   const data = useSelector((state: RootState) => state.data.data);
-//   console.log(data)
+  console.log("results", data)
 
   return (
     <div className="results">

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Data {
   key: string;
-  value: number;
+  value: string;
 }
 
 interface DataState {

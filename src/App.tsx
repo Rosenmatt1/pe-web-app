@@ -13,11 +13,13 @@ const handleSelectOption = (option: string) => {
 
 function App() {
   return (
-    <div className="peapp">
-
-        <Dropdown options={options} onSelectOption={handleSelectOption} />
-        <Timer/>
-        <Results />
+    <div className="wrapper">
+      <div className="title"> The PE App </div>
+      <div className="peapp">
+          <Dropdown options={options} onSelectOption={handleSelectOption} />
+          <Timer/>
+          <Results />
+      </div>
     </div>
   );
 }
