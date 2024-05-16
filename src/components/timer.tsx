@@ -12,27 +12,25 @@ const Timer: React.FC = () => {
   let timerId: NodeJS.Timeout | null = null; // Declare timerId outside useEffect
 
   const handleAddObject = ()  => {
-    formatTime(seconds)
-    dispatch(addObject({ key: selectedKey, value: time }));
-    setSeconds(0); // Reset timer value after adding object
+
+    const { formattedTime} = formatTime(seconds);
+    dispatch(addObject({ key: selectedKey, value: formattedTime }));
+    setSeconds(0); 
   };
 
-  // const formattedTime = await formatTime(seconds); 
-  // dispatch(addObject({ key: selectedKey, value: formattedTime }));
 
-  const formatTime = (seconds: number)  => {
+  const formatTime = (seconds: number): { formattedTime: string; minutes: number }   => {
     const minutes = Math.floor(seconds / 60)
-    console.log("minutes", minutes)
     const remainingSeconds = seconds % 60;
-    console.log("Seconds", remainingSeconds)
+    let formattedTime: string;
   
     if (minutes > 1) {
-      setTime(`${minutes} minutes ${remainingSeconds} seconds`)
-      console.log("time minutes greater thna 1", time)
+      formattedTime = `${minutes} minutes ${remainingSeconds} seconds`
     } else {
-      setTime(`${remainingSeconds} seconds`)
-      console.log("time only seconds", time)
+      formattedTime = `${remainingSeconds} seconds`
     }
+
+    return { formattedTime, minutes };
   }
 
   useEffect(() => {
