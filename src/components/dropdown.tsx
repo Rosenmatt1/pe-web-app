@@ -22,6 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
 
   return (
     <div className="dropdown">
+        <h1 className="choose"> Choose Exercise </h1>
         <select value={selectedKey} onChange={handleSelectChange}>
         <option value="">Select an option</option>
         {options.map((option, index) => (

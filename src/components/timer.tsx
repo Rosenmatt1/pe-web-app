@@ -12,12 +12,11 @@ const Timer: React.FC = () => {
   let timerId: NodeJS.Timeout | null = null; // Declare timerId outside useEffect
 
   const handleAddObject = ()  => {
-
     const { formattedTime} = formatTime(seconds);
     dispatch(addObject({ key: selectedKey, value: formattedTime }));
+    setIsRunning(false);
     setSeconds(0); 
   };
-
 
   const formatTime = (seconds: number): { formattedTime: string; minutes: number }   => {
     const minutes = Math.floor(seconds / 60)
@@ -29,7 +28,6 @@ const Timer: React.FC = () => {
     } else {
       formattedTime = `${remainingSeconds} seconds`
     }
-
     return { formattedTime, minutes };
   }
 
@@ -41,7 +39,6 @@ const Timer: React.FC = () => {
     } else {
       if (timerId) clearInterval(timerId); // Clear interval only if timerId is not null
     }
-
     return () => { // Cleanup function
       if (timerId) clearInterval(timerId); // Clear interval when component unmounts
     };
@@ -58,7 +55,7 @@ const Timer: React.FC = () => {
 
   return (
     <div className="timer">
-      <h1>Timer: {seconds} seconds</h1>
+      <h1>Timer: {seconds} seconds </h1>
       {isRunning ? (
         <button onClick={handleStop}> Stop </button>
       ) : (
