@@ -5,10 +5,9 @@ import { RootState } from '../store/store';
 
 interface DropdownProps {
   options: string[];
-  onSelectOption: (option: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
+const Dropdown: React.FC<DropdownProps> = ({ options }) => {
   const dispatch = useDispatch();
   const selectedKey = useSelector((state: RootState) => state.data.selectedKey);
 
@@ -17,7 +16,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelectOption }) => {
   };
 
   useEffect(() => {
-    console.log("Selected key:", selectedKey);
+    console.log("Selected key Dowpdown:", selectedKey);
   }, [selectedKey]); // Log selectedKey when it changes
 
   return (

@@ -7,17 +7,14 @@ import './App.css';
 
 const options = ['Stretching', "Hanging", 'Pumping', 'Clamping', 'Jelqing', 'Extending'];
 
-const handleSelectOption = (option: string) => {
-    console.log(`Selected option: ${option}`);
-  };
 
 function App() {
   return (
     <div className="wrapper">
       <div className="title"> The PE App </div>
       <div className="peapp">
-          <Dropdown options={options} onSelectOption={handleSelectOption} />
-          <Timer/>
+          <Dropdown options={options} />
+          <Timer />
           <Results />
       </div>
     </div>
