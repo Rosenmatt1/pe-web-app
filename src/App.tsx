@@ -5,7 +5,7 @@ import Results from './components/results'
 import './App.css';
 
 
-const options = ['Stretching', "Hanging", 'Pumping', 'Clamping', ];
+const options = ['Stretching', "Hanging", 'Pumping', 'Clamping', 'Jelqing', 'Extending'];
 
 const handleSelectOption = (option: string) => {
     console.log(`Selected option: ${option}`);
