@@ -19,12 +19,14 @@ const Timer: React.FC = () => {
   };
 
   const formatTime = (seconds: number): { formattedTime: string; minutes: number }   => {
-    const minutes = Math.floor(seconds / 60)
+    const minutes = seconds / 60
+    const mintuesFloored = Math.floor(seconds / 60)
+    // console.log("minutes", minutes)
     const remainingSeconds = seconds % 60;
     let formattedTime: string;
   
     if (minutes > 1) {
-      formattedTime = `${minutes} minutes ${remainingSeconds} seconds`
+      formattedTime = `${mintuesFloored} minutes ${remainingSeconds} seconds`
     } else {
       formattedTime = `${remainingSeconds} seconds`
     }
